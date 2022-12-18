@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import ReactDOM from "react-dom/client"
 import "animate.css";
-import { startReactDsfr, useColors } from "@codegouvfr/react-dsfr";
+import { startReactDsfr, getColors, $clientSideIsDark, useIsDark } from "@codegouvfr/react-dsfr";
 import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import CircularProgress from '@mui/material/CircularProgress';
 import { DsfrPlayer } from "./DsfrPlayer";
@@ -9,10 +9,7 @@ import { useStyles } from "tss-react/dsfr";
 import { keyframes } from "tss-react";
 import logoUrl from './logo.svg';
 
-startReactDsfr({ 
-    defaultColorScheme: "dark",
-
-});
+startReactDsfr({ defaultColorScheme: "light" });
 
 
 const { MuiDsfrThemeProvider } = createMuiDsfrThemeProvider();
@@ -29,7 +26,7 @@ function App(){
 
     const { css } = useStyles();
 
-    const { decisions } = useColors();
+    const { setIsDark } = useIsDark();
 
     return (
         <DsfrPlayer
@@ -60,13 +57,6 @@ function App(){
                     text: "introducing",
                     duration: 300
                 },
-                /*
-                {
-                    type: "text",
-                    text: <>The 🇫🇷 Design System <br /> <span style={{ color: decisions.text.title.blueFrance.default }} >React lib</span></>,
-                    duration: 3000
-                },
-                */
                 {
                     type: "bullet points",
                     bulletPoints: [
@@ -101,14 +91,39 @@ function App(){
                             duration: 1800
                         }
                     ],
-                    spacing: "2rem"
-                
+                    spacing: "2rem",
                 },
                 {
                     type: "text",
                     text: <>you've all been waiting for&nbsp;&nbsp;<CircularProgress size={30}/></>,
                     animation: "animate__bounceIn",
                     duration: 2000
+                },
+                {
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
+                            text: "Perfect dark mode integration",
+                            duration: 1000
+                        },
+                        {
+                            text: "No white flash",
+                            animation: "animate__fadeIn",
+                            duration: 1000
+                        }
+                    ],
+                    spacing: "2rem",
+                    effect: ()=> {
+
+                        setIsDark(!$clientSideIsDark.current);
+
+                        return ()=> { 
+
+                            setIsDark(!$clientSideIsDark.current);
+
+                        };
+                    }
+                
                 },
                 {
                     type: "bullet points",

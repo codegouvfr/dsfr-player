@@ -1,6 +1,6 @@
 
 
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, EffectCallback } from "react";
 import type { ScreenProps } from "./Screen";
 import { Screen } from "./Screen";
 
@@ -12,11 +12,12 @@ export type DsfrPlayerProps = {
 
 export namespace DsfrPlayerProps {
 
-	export type Item =
+	export type Item = { effect?: EffectCallback; } & (
 		| Item.Image
 		| Item.MusicCredential
 		| Item.BulletPoints
-		| Item.Text;
+		| Item.Text
+	);
 
 	export namespace Item {
 
@@ -49,17 +50,22 @@ export function DsfrPlayer(props: DsfrPlayerProps) {
 				return;
 			}
 
+			const cleanup = item.effect?.();
+
 			setTimeout(
 				incrementIndex,
 				item.type === "bullet points" ?
 					item.bulletPoints.map(({ duration }) => duration).reduce((curr, prev) => curr + prev, 0) :
 					item.duration
 			);
+
+			return cleanup;
+
 		},
 		[index]
 	);
 
-	return item.type === "bullet points" ? <BulletPointsDsfrPlayer {...item} /> : <Screen key={index} {...item} />
+	return item.type === "bullet points" ? <BulletPointsDsfrPlayer key={index} {...item} /> : <Screen key={index} {...item} />
 
 
 }
