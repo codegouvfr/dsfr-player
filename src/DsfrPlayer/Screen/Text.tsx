@@ -22,15 +22,19 @@ export function Text(props: TextProps) {
 				textAlign: "center"
 			}}
 		>
-			<h1
-				className={cx(animation !== undefined && "animate__animated", animation, css({
-					fontSize: "3.5rem",
-					margin: 0,
-					lineHeight: "4rem"
-				}))}
+			<h2
+				className={cx(
+					animation !== undefined && "animate__animated",
+					animation,
+					css({
+						fontSize: "3.5rem",
+						margin: 0,
+						lineHeight: "4rem"
+					})
+				)}
 			>
 				{text}
-			</h1>
+			</h2>
 		</div>
 	);
 

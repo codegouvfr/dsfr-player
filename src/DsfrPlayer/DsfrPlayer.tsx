@@ -66,12 +66,16 @@ export function DsfrPlayer(props: DsfrPlayerProps) {
 
 function BulletPointsDsfrPlayer(props: DsfrPlayerProps.Item.BulletPoints) {
 
-	const { bulletPoints } = props;
+	const { bulletPoints, ...rest } = props;
 
 	const [index, incrementIndex] = useReducer(index => index + 1, 0);
 
 	useEffect(
 		() => {
+
+			if( index === bulletPoints.length - 1 ){
+				return;
+			}
 
 			setTimeout(
 				incrementIndex,
@@ -84,9 +88,9 @@ function BulletPointsDsfrPlayer(props: DsfrPlayerProps.Item.BulletPoints) {
 	return (
 		<Screen
 			key={index}
-			type="bullet points"
 			bulletPoints={bulletPoints}
 			currentIndex={index}
+			{...rest}
 		/>
 	);
 
