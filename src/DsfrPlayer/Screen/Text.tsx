@@ -28,8 +28,8 @@ export function Text(props: TextProps) {
 					animation,
 					css({
 						fontSize: "3.5rem",
+						lineHeight: "4rem",
 						margin: 0,
-						lineHeight: "4rem"
 					})
 				)}
 			>

@@ -1,20 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import ReactDOM from "react-dom/client"
+import { useEffect } from "react";
 import "animate.css";
-import { startReactDsfr, getColors, $clientSideIsDark, useIsDark } from "@codegouvfr/react-dsfr";
+import { startReactDsfr, getColors, useIsDark, $clientSideIsDark } from "@codegouvfr/react-dsfr";
 import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import CircularProgress from '@mui/material/CircularProgress';
 import { DsfrPlayer } from "./DsfrPlayer";
 import { useStyles } from "tss-react/dsfr";
 import { keyframes } from "tss-react";
-import logoUrl from './logo.svg';
+import reactLogoSvgUrl from "./reactLogo.svg";
+import marianneImgUrl from "./marianne.png";
 
-startReactDsfr({ defaultColorScheme: "light" });
-
+startReactDsfr({ defaultColorScheme: "system" });
 
 const { MuiDsfrThemeProvider } = createMuiDsfrThemeProvider();
-
-
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <MuiDsfrThemeProvider>
@@ -22,15 +21,23 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     </MuiDsfrThemeProvider>,
 );
 
-function App(){
+function App() {
 
     const { css } = useStyles();
 
     const { setIsDark } = useIsDark();
 
+    useEffect(
+        () => {
+            setIsDark(false);
+        },
+        []
+    );
+
     return (
         <DsfrPlayer
-            //specificIndex={5}
+            //specificIndex={8}
+            rootFontSize="1.2rem"
             items={[
                 {
                     type: "text",
@@ -66,14 +73,18 @@ function App(){
                         },
                         {
                             text: <>
-                                <img 
-                                    src={logoUrl} 
-                                    className={css({
-                                        height: "10vmin",
-                                        pointerEvents: "none",
-                                        marginBottom: -30,
-                                        "@media (prefers-reduced-motion: no-preference)": {
-                                              animation: `${keyframes`
+                                <div className={css({
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center"
+                                })}>
+                                    <img
+                                        src={reactLogoSvgUrl}
+                                        className={css({
+                                            height: "5rem",
+                                            pointerEvents: "none",
+                                            "@media (prefers-reduced-motion: no-preference)": {
+                                                animation: `${keyframes`
                                                 from {
                                                   transform: rotate(0deg);
                                                 }
@@ -81,11 +92,13 @@ function App(){
                                                   transform: rotate(360deg);
                                                 }
                                               `} infinite 20s linear`
-                                        }
+                                            }
 
-                                    })}
-                                />
-                                Library
+                                        })}
+                                    />
+                                    <span>Library</span>
+                                </div>
+
                             </>,
                             animation: "animate__fadeIn",
                             duration: 1800
@@ -95,35 +108,9 @@ function App(){
                 },
                 {
                     type: "text",
-                    text: <>you've all been waiting for&nbsp;&nbsp;<CircularProgress size={30}/></>,
+                    text: <>you've all been waiting for&nbsp;&nbsp;<CircularProgress size="2rem" /></>,
                     animation: "animate__bounceIn",
                     duration: 2000
-                },
-                {
-                    type: "bullet points",
-                    bulletPoints: [
-                        {
-                            text: "Perfect dark mode integration",
-                            duration: 1000
-                        },
-                        {
-                            text: "No white flash",
-                            animation: "animate__fadeIn",
-                            duration: 1000
-                        }
-                    ],
-                    spacing: "2rem",
-                    effect: ()=> {
-
-                        setIsDark(!$clientSideIsDark.current);
-
-                        return ()=> { 
-
-                            setIsDark(!$clientSideIsDark.current);
-
-                        };
-                    }
-                
                 },
                 {
                     type: "bullet points",
@@ -157,6 +144,37 @@ function App(){
                     type: "text",
                     text: "Great documentation",
                     duration: 1000
+                },
+                {
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
+                            text: "Perfect dark mode integration",
+                            duration: 1000
+                        },
+                        {
+                            text: "No white flash",
+                            animation: "animate__fadeIn",
+                            duration: 1500
+                        }
+                    ],
+                    spacing: "2rem",
+                    effect: () => {
+
+                        setTimeout(()=> {
+
+                            setIsDark(!$clientSideIsDark.current);
+
+                        }, 700);
+
+
+                        return () => {
+
+                            setIsDark(!$clientSideIsDark.current);
+
+                        };
+                    }
+
                 },
                 {
                     type: "text",
@@ -254,6 +272,18 @@ function App(){
                     type: "text",
                     text: "@codegouvfr/react-dsfr",
                     animation: "animate__fadeIn",
+                    duration: 3000
+                },
+                {
+                    type: "image",
+                    imgUrl: marianneImgUrl,
+                    duration: 5000,
+                    width: 600
+                },
+                {
+                    type: "music credentials",
+                    title: "Teardrops",
+                    band: "Bring Me The Horizon",
                     duration: 1000
                 },
 

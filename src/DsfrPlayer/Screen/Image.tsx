@@ -7,6 +7,19 @@ export type ImageProps = {
 
 export function Image(props: ImageProps) {
 
-	return null;
+	const { imgUrl, width } = props;
+
+	return (
+		<div
+			style={{
+				height: "100vh",
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center"
+			}}
+		>
+			<img src={imgUrl} width={width} />
+		</div>
+	);
 
 }

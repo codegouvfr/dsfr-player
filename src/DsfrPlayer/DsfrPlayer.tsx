@@ -3,11 +3,13 @@
 import { useReducer, useEffect, EffectCallback } from "react";
 import type { ScreenProps } from "./Screen";
 import { Screen } from "./Screen";
+import { GlobalStyles } from "tss-react";
 
 
 export type DsfrPlayerProps = {
 	items: DsfrPlayerProps.Item[];
 	specificIndex?: number;
+	rootFontSize: number | string;
 };
 
 export namespace DsfrPlayerProps {
@@ -33,7 +35,7 @@ export namespace DsfrPlayerProps {
 
 export function DsfrPlayer(props: DsfrPlayerProps) {
 
-	const { items, specificIndex } = props;
+	const { items, specificIndex, rootFontSize } = props;
 
 	const [index, incrementIndex] = useReducer(index => index + 1, specificIndex ?? 0);
 
@@ -42,11 +44,11 @@ export function DsfrPlayer(props: DsfrPlayerProps) {
 	useEffect(
 		() => {
 
-			if( specificIndex !== undefined ){
+			if (specificIndex !== undefined) {
 				return;
 			}
 
-			if( index === items.length - 1 ){
+			if (index === items.length - 1) {
 				return;
 			}
 
@@ -65,7 +67,21 @@ export function DsfrPlayer(props: DsfrPlayerProps) {
 		[index]
 	);
 
-	return item.type === "bullet points" ? <BulletPointsDsfrPlayer key={index} {...item} /> : <Screen key={index} {...item} />
+	return (
+		<>
+			<GlobalStyles
+				styles={{
+					html: {
+						fontSize: rootFontSize,
+					},
+					body: {
+						margin: 0
+					}
+				}}
+			/>
+			{item.type === "bullet points" ? <BulletPointsDsfrPlayer key={index} {...item} /> : <Screen key={index} {...item} />}
+		</>
+	)
 
 
 }
@@ -79,7 +95,7 @@ function BulletPointsDsfrPlayer(props: DsfrPlayerProps.Item.BulletPoints) {
 	useEffect(
 		() => {
 
-			if( index === bulletPoints.length - 1 ){
+			if (index === bulletPoints.length - 1) {
 				return;
 			}
 
@@ -92,12 +108,12 @@ function BulletPointsDsfrPlayer(props: DsfrPlayerProps.Item.BulletPoints) {
 	);
 
 	return (
-		<Screen
-			key={index}
-			bulletPoints={bulletPoints}
-			currentIndex={index}
-			{...rest}
-		/>
+			<Screen
+				key={index}
+				bulletPoints={bulletPoints}
+				currentIndex={index}
+				{...rest}
+			/>
 	);
 
 
