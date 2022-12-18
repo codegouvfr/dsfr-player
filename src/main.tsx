@@ -2,7 +2,7 @@
 import ReactDOM from "react-dom/client"
 import { useEffect } from "react";
 import "animate.css";
-import { startReactDsfr, getColors, useIsDark, $clientSideIsDark } from "@codegouvfr/react-dsfr";
+import { startReactDsfr, useIsDark } from "@codegouvfr/react-dsfr";
 import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import CircularProgress from '@mui/material/CircularProgress';
 import { DsfrPlayer } from "./DsfrPlayer";
@@ -109,7 +109,7 @@ function App() {
                 {
                     type: "text",
                     text: <>you've all been waiting for&nbsp;&nbsp;<CircularProgress size="2rem" /></>,
-                    animation: "animate__bounceIn",
+                    animation: "animate__fadeIn",
                     duration: 2000
                 },
                 {
@@ -132,18 +132,22 @@ function App() {
                 {
                     type: "text",
                     text: "Unmatched developer experience",
-                    animation: "animate__bounceIn",
+                    animation: "animate__fadeIn",
                     duration: 1500
                 },
                 {
-                    type: "text",
-                    text: "Live sandboxes for every components",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Great documentation",
-                    duration: 1000
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
+                            text: "Great documentation",
+                            duration: 1000
+                        },
+                        {
+                            text: "Components live sandboxes",
+                            duration: 1000
+                        }
+                    ]
+
                 },
                 {
                     type: "bullet points",
@@ -153,7 +157,7 @@ function App() {
                             duration: 1000
                         },
                         {
-                            text: "No white flash",
+                            text: "No more white flashes",
                             animation: "animate__fadeIn",
                             duration: 1500
                         }
@@ -161,101 +165,90 @@ function App() {
                     spacing: "2rem",
                     effect: () => {
 
-                        setTimeout(()=> {
+                        setTimeout(() => {
 
-                            setIsDark(!$clientSideIsDark.current);
+                            setIsDark(isDark => !isDark);
 
                         }, 700);
 
 
                         return () => {
 
-                            setIsDark(!$clientSideIsDark.current);
+                            setIsDark(isDark => !isDark);
 
                         };
                     }
 
                 },
                 {
-                    type: "text",
-                    text: "works with ...",
-                    duration: 500
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
+                            text: "works with ...",
+                            duration: 500
+                        },
+                        {
+                            text: "Create React App",
+                            duration: 500
+                        },
+                        {
+                            text: "Vite",
+                            duration: 500
+                        },
+                        {
+                            text: "Next.js",
+                            animation: "animate__tada",
+                            duration: 1500
+                        },
+
+                    ]
                 },
                 {
-                    type: "text",
-                    text: "Create React App",
-                    animation: "animate__bounceOut",
-                    duration: 1000
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
+                            text: "Server Side Rendering",
+                            duration: 1000
+                        },
+                        {
+                            text: "JavaScript not required",
+                            duration: 1000
+                        },
+                    ]
                 },
                 {
-                    type: "text",
-                    text: "Vite",
-                    animation: "animate__bounceOut",
-                    duration: 1000
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
+                            text: "Auto import of icons",
+                            duration: 1000
+                        },
+                        {
+                            text: "Remixicon support",
+                            duration: 1000
+                        }
+                    ]
                 },
                 {
-                    type: "text",
-                    text: "Next.js",
-                    animation: "animate__bounceIn",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Server Side Rendering",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Works without JavaScript",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Auto import of icons",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Remixicon support",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "CSS in JSS",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "i18n",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Routing libraries integration",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "React Router",
-                    animation: "animate__bounceOut",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Type Route",
-                    animation: "animate__bounceOut",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "TanStack Router",
-                    animation: "animate__bounceOut",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "We got you covered",
-                    duration: 1000
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
+                            text: "Routing libraries integration",
+                            duration: 700
+                        },
+                        {
+                            text: "React Router",
+                            duration: 500
+                        },
+                        {
+                            text: "TanStack Router",
+                            duration: 500
+                        },
+                        {
+                            text: "Type Route ...",
+                            duration: 1000
+                        }
+                    ]
                 },
                 {
                     type: "text",
@@ -263,6 +256,16 @@ function App() {
                     duration: 1000
                 },
                 //Video MUI
+                {
+                    type: "text",
+                    text: "CSS in JSS",
+                    duration: 1000
+                },
+                {
+                    type: "text",
+                    text: "i18n 🌍",
+                    duration: 1000
+                },
                 {
                     type: "text",
                     text: "Join the revolution",
@@ -284,7 +287,12 @@ function App() {
                     type: "music credentials",
                     title: "Teardrops",
                     band: "Bring Me The Horizon",
-                    duration: 1000
+                    duration: 1000,
+                    effect: ()=> {
+
+                        setIsDark(true);
+
+                    }
                 },
 
             ]}
