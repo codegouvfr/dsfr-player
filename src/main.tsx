@@ -109,7 +109,6 @@ function App() {
                 {
                     type: "text",
                     text: <>you've all been waiting for&nbsp;&nbsp;<CircularProgress size="2rem" /></>,
-                    animation: "animate__fadeIn",
                     duration: 2000
                 },
                 {
@@ -128,26 +127,6 @@ function App() {
                             duration: 1000
                         }
                     ]
-                },
-                {
-                    type: "text",
-                    text: "Unmatched developer experience",
-                    animation: "animate__fadeIn",
-                    duration: 1500
-                },
-                {
-                    type: "bullet points",
-                    bulletPoints: [
-                        {
-                            text: "Great documentation",
-                            duration: 1000
-                        },
-                        {
-                            text: "Components live sandboxes",
-                            duration: 1000
-                        }
-                    ]
-
                 },
                 {
                     type: "bullet points",
@@ -184,20 +163,42 @@ function App() {
                     type: "bullet points",
                     bulletPoints: [
                         {
+                            text: "Great documentation",
+                            duration: 1000
+                        },
+                        {
+                            text: "Components live sandboxes",
+                            duration: 1000
+                        }
+                    ]
+
+                },
+                {
+                    type: "text",
+                    text: "Unmatched developer experience",
+                    animation: "animate__fadeIn",
+                    duration: 1500
+                },
+                {
+                    type: "bullet points",
+                    bulletPoints: [
+                        {
                             text: "works with ...",
                             duration: 500
                         },
                         {
                             text: "Create React App",
+                    animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "Vite",
+                    animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "Next.js",
-                            animation: "animate__tada",
+                    animation: "animate__fadeIn",
                             duration: 1500
                         },
 
@@ -212,6 +213,7 @@ function App() {
                         },
                         {
                             text: "JavaScript not required",
+                    animation: "animate__fadeIn",
                             duration: 1000
                         },
                     ]
@@ -238,15 +240,18 @@ function App() {
                         },
                         {
                             text: "React Router",
+                    animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "TanStack Router",
+                    animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "Type Route ...",
-                            duration: 1000
+                    animation: "animate__fadeIn",
+                            duration: 1500
                         }
                     ]
                 },
@@ -256,6 +261,11 @@ function App() {
                     duration: 1000
                 },
                 //Video MUI
+                {
+                    type: "text",
+                    text: "Three shakable",
+                    duration: 1000
+                },
                 {
                     type: "text",
                     text: "CSS in JSS",
@@ -268,6 +278,11 @@ function App() {
                 },
                 {
                     type: "text",
+                    text: "and much more...",
+                    duration: 1000
+                },
+                {
+                    type: "text",
                     text: "Join the revolution",
                     duration: 1000
                 },
@@ -275,19 +290,19 @@ function App() {
                     type: "text",
                     text: "@codegouvfr/react-dsfr",
                     animation: "animate__fadeIn",
-                    duration: 3000
+                    duration: 2000
                 },
                 {
                     type: "image",
                     imgUrl: marianneImgUrl,
-                    duration: 5000,
+                    duration: 2000,
                     width: 600
                 },
                 {
                     type: "music credentials",
                     title: "Teardrops",
                     band: "Bring Me The Horizon",
-                    duration: 1000,
+                    duration: 2000,
                     effect: ()=> {
 
                         setIsDark(true);
