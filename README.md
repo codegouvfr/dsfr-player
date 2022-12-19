@@ -1,6 +1,6 @@
 # DSFR Player
 
-![image](https://user-images.githubusercontent.com/6702424/208315832-5803a9c8-a122-4dd1-bb24-7101fb4a8105.png)
+https://user-images.githubusercontent.com/6702424/208316196-80331e43-41f2-46fd-8f5e-f06facdc05fc.mov
 
 This project is intended to generate a succession of animated text DSFR themed.  
 It's intended use is to record videos for creating catchy trailers to share on social network.  
