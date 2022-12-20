@@ -38,9 +38,8 @@ export function BulletPoints(props: BulletPointsProps) {
 									fontSize: "3.5rem",
 									margin: 0,
 									lineHeight: "4rem",
-									marginBottom: bulletPoints.length - 1 === i ? undefined : (spacing ?? fr.spacing("32v")),
+									marginBottom: bulletPoints.length - 1 === i ? undefined : (spacing ?? "3rem"),
 									visibility: i <= currentIndex ? undefined : "hidden"
-
 								})
 							)
 						}

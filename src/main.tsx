@@ -7,9 +7,6 @@ import { createMuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import CircularProgress from '@mui/material/CircularProgress';
 import { DsfrPlayer } from "./DsfrPlayer";
 import { useStyles } from "tss-react/dsfr";
-import { keyframes } from "tss-react";
-import reactLogoSvgUrl from "./reactLogo.svg";
-import marianneImgUrl from "./marianne.png";
 
 startReactDsfr({ defaultColorScheme: "system" });
 
@@ -36,7 +33,6 @@ function App() {
 
     return (
         <DsfrPlayer
-            //specificIndex={8}
             rootFontSize="1.2rem"
             items={[
                 {
@@ -68,38 +64,11 @@ function App() {
                     type: "bullet points",
                     bulletPoints: [
                         {
-                            text: <>The 🇫🇷 Design System</>,
+                            text: "The 🇫🇷 Design System",
                             duration: 500
                         },
                         {
-                            text: <>
-                                <div className={css({
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center"
-                                })}>
-                                    <img
-                                        src={reactLogoSvgUrl}
-                                        className={css({
-                                            height: "5rem",
-                                            pointerEvents: "none",
-                                            "@media (prefers-reduced-motion: no-preference)": {
-                                                animation: `${keyframes`
-                                                from {
-                                                  transform: rotate(0deg);
-                                                }
-                                                to {
-                                                  transform: rotate(360deg);
-                                                }
-                                              `} infinite 20s linear`
-                                            }
-
-                                        })}
-                                    />
-                                    <span>Library</span>
-                                </div>
-
-                            </>,
+                            text: "React library",
                             animation: "animate__fadeIn",
                             duration: 1800
                         }
@@ -108,7 +77,24 @@ function App() {
                 },
                 {
                     type: "text",
-                    text: <>you've all been waiting for&nbsp;&nbsp;<CircularProgress size="2rem" /></>,
+                    text: (
+                        <>
+                            you've all been waiting for&nbsp;&nbsp;
+                            <CircularProgress 
+                                size="2rem" 
+                                color="inherit" 
+                                className={css({
+                                    "overflow": "visible",
+                                    "& svg": {
+                                        overflow: "visible"
+                                    },
+                                    "& circle": {
+                                        strokeWidth: "7px"
+                                    }
+                                })}
+                            />
+                        </>
+                    ),
                     duration: 2000
                 },
                 {
@@ -188,17 +174,17 @@ function App() {
                         },
                         {
                             text: "Create React App",
-                    animation: "animate__fadeIn",
+                            animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "Vite",
-                    animation: "animate__fadeIn",
+                            animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "Next.js",
-                    animation: "animate__fadeIn",
+                            animation: "animate__fadeIn",
                             duration: 1500
                         },
 
@@ -213,8 +199,8 @@ function App() {
                         },
                         {
                             text: "JavaScript not required",
-                    animation: "animate__fadeIn",
-                            duration: 1000
+                            animation: "animate__fadeIn",
+                            duration: 1100
                         },
                     ]
                 },
@@ -240,17 +226,17 @@ function App() {
                         },
                         {
                             text: "React Router",
-                    animation: "animate__fadeIn",
+                            animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "TanStack Router",
-                    animation: "animate__fadeIn",
+                            animation: "animate__fadeIn",
                             duration: 500
                         },
                         {
                             text: "Type Route ...",
-                    animation: "animate__fadeIn",
+                            animation: "animate__fadeIn",
                             duration: 1500
                         }
                     ]
@@ -268,48 +254,31 @@ function App() {
                 },
                 {
                     type: "text",
-                    text: "CSS in JSS",
+                    text: "CSS in JS",
                     duration: 1000
                 },
                 {
                     type: "text",
-                    text: "i18n 🌍",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "and much more...",
-                    duration: 1000
-                },
-                {
-                    type: "text",
-                    text: "Join the revolution",
+                    text: "i18n",
                     duration: 1000
                 },
                 {
                     type: "text",
                     text: "@codegouvfr/react-dsfr",
                     animation: "animate__fadeIn",
-                    duration: 2000
-                },
-                {
-                    type: "image",
-                    imgUrl: marianneImgUrl,
-                    duration: 2000,
-                    width: 600
+                    duration: 3000
                 },
                 {
                     type: "music credentials",
-                    title: "Teardrops",
-                    band: "Bring Me The Horizon",
+                    title: "",
+                    band: "Music by Migu",
                     duration: 2000,
-                    effect: ()=> {
+                    effect: () => {
 
                         setIsDark(true);
 
                     }
                 },
-
             ]}
         />
     );

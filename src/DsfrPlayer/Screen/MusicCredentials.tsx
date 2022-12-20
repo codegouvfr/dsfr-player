@@ -37,12 +37,11 @@ export function MusicCredentials(props: MusicCredentialsProps) {
 							textTransform: "uppercase",
 							fontSize: "3.5rem",
 							lineHeight: "4rem",
-							
 						})
 						)
 					}
 				>
-					{title} - 
+					{title}
 				</p>
 				<p
 					className={

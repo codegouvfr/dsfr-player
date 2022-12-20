@@ -48,11 +48,12 @@ export function DsfrPlayer(props: DsfrPlayerProps) {
 				return;
 			}
 
+			const cleanup = item.effect?.();
+
 			if (index === items.length - 1) {
-				return;
+				return cleanup;
 			}
 
-			const cleanup = item.effect?.();
 
 			setTimeout(
 				incrementIndex,
