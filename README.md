@@ -1,6 +1,7 @@
 # DSFR Player
 
-<img width="1728" alt="image" src="https://github.com/codegouvfr/dsfr-player/assets/6702424/94a20bd8-f33c-4b2e-9606-10ae9e8184ef">
+<img width="1728" alt="image" src="https://github.com/codegouvfr/dsfr-player/assets/6702424/94a20bd8-f33c-4b2e-9606-10ae9e8184ef">  
+
 
 
 This project is intended to generate a succession of animated text DSFR themed.  
