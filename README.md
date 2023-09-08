@@ -9,6 +9,8 @@ It's intended use is to record videos for creating catchy trailers to share on s
 This tools will only generate a web app. In order to turn it into a video you'll have
 to record the screen and then you are on your own to edit the video.  
 
+Example usage: https://youtu.be/5q88JgXUAY4?si=5LvB2ETOE3Y0EDMJ
+
 The `animation` param refers to [animate.css](https://animate.style/) class names.
 
 Side tools that I use:  
